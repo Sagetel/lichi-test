@@ -16,7 +16,11 @@ const postsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchPosts.fulfilled, (state, action: PayloadAction<Post[]>) => {
-      state.posts = action.payload;
+      const postsWithComments = action.payload.map(post => ({
+        ...post,
+        comments: [],
+      }));
+      state.posts = postsWithComments;
     });
   },
 });
