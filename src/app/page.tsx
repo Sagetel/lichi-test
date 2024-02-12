@@ -1,4 +1,6 @@
-import Cards from "../../components/cards";
+// @ts-ignore
+import Cards from '../../components/cards.tsx';
+
 export default function Home() {
   return (
     <main className="p-3 max-w-7xl container ">

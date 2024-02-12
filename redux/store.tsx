@@ -1,6 +1,7 @@
-
 import { configureStore } from '@reduxjs/toolkit';
-import postsReducer from './postsSlice';
+// @ts-ignore
+// eslint-disable-next-line
+import postsReducer from './postsSlice.tsx';
 
 const store = configureStore({
   reducer: {

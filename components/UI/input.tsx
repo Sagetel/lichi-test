@@ -1,21 +1,24 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent } from 'react';
 
 interface Props {
     value: string;
+    // eslint-disable-next-line
     setValue: (value: string) => void;
     name: string;
     labelText?: string;
 }
 
 function Input(props: Props) {
-    const { value, setValue, name, labelText } = props;
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value);
-    };
-    return (
+  const {
+    value, setValue, name, labelText,
+  } = props;
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+  return (
         <div className="w-full">
-            {labelText &&
-                <label htmlFor={name} className="block text-gray-700 text-sm font-bold mb-2 mt-4">{labelText}</label>
+            {labelText
+                && <label htmlFor={name} className="block text-gray-700 text-sm font-bold mb-2 mt-4">{labelText}</label>
             }
 
             <input
@@ -25,7 +28,7 @@ function Input(props: Props) {
                 onChange={handleChange}
             />
         </div>
-    );
+  );
 }
 
 export default Input;
