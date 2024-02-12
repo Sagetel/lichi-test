@@ -7,13 +7,16 @@ const fetchPosts = createAsyncThunk<Post[]>('posts/fetchPosts', async () => {
   return response.data;
 });
 
-const postsSlice = createSlice({
+const addPost = createSlice({
   name: 'posts',
   initialState: {
     posts: [],
-    loading: false,
   } as PostsState,
-  reducers: {},
+  reducers: {
+    addNewPost: (state, action: PayloadAction<Post>) => {
+      state.posts.unshift(action.payload);
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchPosts.fulfilled, (state, action: PayloadAction<Post[]>) => {
       const postsWithComments = action.payload.map(post => ({
@@ -25,5 +28,7 @@ const postsSlice = createSlice({
   },
 });
 
-export default postsSlice.reducer;
+export const { addNewPost } = addPost.actions;
+export default addPost.reducer;
+
 export { fetchPosts };
