@@ -4,7 +4,7 @@ interface Props {
     value: string;
     setValue: (value: string) => void;
     name: string;
-    labelText: string;
+    labelText?: string;
 }
 
 function Input(props: Props) {
@@ -14,10 +14,12 @@ function Input(props: Props) {
     };
     return (
         <div className="w-full">
-            <label htmlFor={name} className="block text-gray-700 text-sm font-bold mb-2 mt-4">{labelText}</label>
+            {labelText &&
+                <label htmlFor={name} className="block text-gray-700 text-sm font-bold mb-2 mt-4">{labelText}</label>
+            }
 
             <input
-                className="w-full"
+                className="w-full border-2 border-black rounded p-1"
                 type="text"
                 value={value}
                 onChange={handleChange}

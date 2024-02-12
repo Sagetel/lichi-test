@@ -14,7 +14,7 @@ function Button(props: Props) {
         <button
             onClick={(e) => { handleClick(e) }}
             type={type ? type as "button" | "submit" | "reset" : "button"}
-            className='bg-green-500 text-white font-bold py-2 px-4 rounded mb-2 ml-a'>
+            className='bg-green-500 text-white font-bold py-2 px-4 rounded '>
             {text}
         </button>
     )

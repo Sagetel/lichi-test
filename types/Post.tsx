@@ -11,6 +11,16 @@ export interface Comment {
     text: string;
 
 }
+export interface AddCommentPayload {
+    postId: number;
+    comment: Comment;
+}
+export interface EditCommentPayload {
+    postId: number;
+    commentId: number;
+    newText: string;
+}
+
 export interface PostsState {
     posts: Post[];
-  }
+}
